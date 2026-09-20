@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/evently}
+    username: ${SPRING_DATASOURCE_USERNAME:evently}
+    password: ${SPRING_DATASOURCE_PASSWORD:evently}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  application:
+    name: Evently

@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+
+    environment:
+      POSTGRES_DB: evently
+      POSTGRES_USER: evently
+      POSTGRES_PASSWORD: evently
+
+    ports:
+      - "5432:5432"
