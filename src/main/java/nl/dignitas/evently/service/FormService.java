@@ -59,9 +59,7 @@ public class FormService {
     }
 
     public FormResponse getForm(Long formId) {
-        Form form = formRepository
-                .findById(formId)
-                .orElseThrow(()-> new ResourceNotFoundException("Formulier met id " + formId + " was niet gevonden"));
+        Form form = findForm(formId);
         return toResponse(form);
     }
 
@@ -107,5 +105,14 @@ public class FormService {
                 }
             }
         }
+    }
+
+    public Form findForm(Long formId) {
+
+        return formRepository
+                .findById(formId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Formulier met id " + formId + " was niet gevonden")
+                );
     }
 }
