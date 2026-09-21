@@ -70,6 +70,7 @@ public class FormField {
     }
 
     public void setForm(Form form) {
+        this.form = form;
     }
 
     public void setName(String name) {
