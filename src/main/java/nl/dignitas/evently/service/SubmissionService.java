@@ -26,12 +26,10 @@ public class SubmissionService {
 
     private final SubmissionRepository submissionRepository;
     private final FormService formService;
-    private final View error;
 
-    public SubmissionService(SubmissionRepository submissionRepository, FormService formService, View error) {
+    public SubmissionService(SubmissionRepository submissionRepository, FormService formService) {
         this.submissionRepository = submissionRepository;
         this.formService = formService;
-        this.error = error;
     }
 
     @Transactional

@@ -1,7 +1,6 @@
 package nl.dignitas.evently.domain;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,10 +39,6 @@ public class FormField {
 
     public Long getId() {
         return id;
-    }
-
-    public Form getForm() {
-        return form;
     }
 
     public String getName() {

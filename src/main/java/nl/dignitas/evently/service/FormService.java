@@ -10,7 +10,6 @@ import nl.dignitas.evently.dto.FormResponse;
 import nl.dignitas.evently.exception.InvalidFormDefinitionException;
 import nl.dignitas.evently.exception.ResourceNotFoundException;
 import nl.dignitas.evently.repository.FormRepository;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
