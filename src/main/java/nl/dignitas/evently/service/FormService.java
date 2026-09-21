@@ -8,7 +8,9 @@ import nl.dignitas.evently.dto.CreateFormRequest;
 import nl.dignitas.evently.dto.FieldResponse;
 import nl.dignitas.evently.dto.FormResponse;
 import nl.dignitas.evently.exception.InvalidFormDefinitionException;
+import nl.dignitas.evently.exception.ResourceNotFoundException;
 import nl.dignitas.evently.repository.FormRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,6 +56,21 @@ public class FormService {
 
         Form savedForm = formRepository.save(form);
         return toResponse(savedForm);
+    }
+
+    public FormResponse getForm(Long formId) {
+        Form form = formRepository
+                .findById(formId)
+                .orElseThrow(()-> new ResourceNotFoundException("Formulier met id " + formId + " was niet gevonden"));
+        return toResponse(form);
+    }
+
+    public List<FormResponse> getAllForms() {
+        return formRepository
+                .findAll()
+                .stream()
+                .map(this::toResponse)
+                .toList();
     }
 
     private FormResponse toResponse(Form form) {

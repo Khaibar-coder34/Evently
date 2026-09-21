@@ -7,6 +7,8 @@ import nl.dignitas.evently.service.FormService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/forms")
 public class FormController {
@@ -21,5 +23,15 @@ public class FormController {
     @ResponseStatus(HttpStatus.CREATED)
     public FormResponse createForm(@Valid @RequestBody CreateFormRequest request) {
         return formService.createForm(request);
+    }
+
+    @GetMapping("/{formId}")
+    public FormResponse getForm(@PathVariable Long formId) {
+        return formService.getForm(formId);
+    }
+
+    @GetMapping
+    public List<FormResponse> getAllForms() {
+        return formService.getAllForms();
     }
 }
