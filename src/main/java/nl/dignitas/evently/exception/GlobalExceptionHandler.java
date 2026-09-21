@@ -17,8 +17,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleNotFound(ResourceNotFoundException exception) {
         ApiErrorResponse response = new ApiErrorResponse(
                 HttpStatus.NOT_FOUND.value(),
-                exception.getMessage(),
-                Map.of()
+                "Resource niet gevonden",
+                Map.of("resource", exception.getMessage())
         );
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
@@ -29,8 +29,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleInvalidForm(InvalidFormDefinitionException exception) {
         ApiErrorResponse response = new ApiErrorResponse(
                 HttpStatus.BAD_REQUEST.value(),
-                exception.getMessage(),
-                Map.of()
+                "Formulier is ongeldig",
+                Map.of("form", exception.getMessage())
         );
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorResponse> handleInvalidSubmission(InvalidSubmissionException exception) {
         ApiErrorResponse response = new ApiErrorResponse(
                 HttpStatus.BAD_REQUEST.value(),
-                exception.getMessage(),
+                "Validatie mislukt",
                 exception.getErrors()
         );
         return ResponseEntity

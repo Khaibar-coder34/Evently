@@ -8,7 +8,6 @@ import java.util.List;
 public record FieldResponse(
         Long id,
         String name,
-        String label,
         FieldType type,
         boolean required,
         List<String> options

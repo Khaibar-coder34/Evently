@@ -40,7 +40,6 @@ public class FormService {
             FormField field = new FormField();
 
             field.setName(fieldRequest.name());
-            field.setLabel(fieldRequest.label());
             field.setFieldType(fieldRequest.type());
             field.setRequired(fieldRequest.required());
 
@@ -77,7 +76,6 @@ public class FormService {
                 .map(field -> new FieldResponse(
                         field.getId(),
                         field.getName(),
-                        field.getLabel(),
                         field.getFieldType(),
                         field.isRequired(),
                         List.copyOf(field.getOptions())

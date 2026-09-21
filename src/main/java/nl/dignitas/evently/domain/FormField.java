@@ -20,9 +20,6 @@ public class FormField {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String label;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private FieldType fieldType;
@@ -61,10 +58,6 @@ public class FormField {
         return options;
     }
 
-    public String getLabel() {
-        return label;
-    }
-
     public boolean isRequired() {
         return required;
     }
@@ -83,10 +76,6 @@ public class FormField {
 
     public void setRequired(boolean required) {
         this.required = required;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
     public void setOptions(List<String> options) {

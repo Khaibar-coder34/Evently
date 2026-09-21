@@ -12,9 +12,6 @@ public record CreateFieldRequest(
     @NotBlank(message = "Veldnaam is verplicht")
     String name,
 
-    @NotBlank(message = "veldlabel is verplicht")
-    String label,
-
     @NotNull(message = "veldtype is verplicht")
     FieldType type,
 
