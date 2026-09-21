@@ -6,7 +6,7 @@ public class InvalidSubmissionException extends RuntimeException{
     private final Map<String, String> errors;
 
     public InvalidSubmissionException(Map<String, String> errors) {
-        super("Validatie foutmelding");
+        super("Validatie mislukt");
         this.errors = errors;
     }
 

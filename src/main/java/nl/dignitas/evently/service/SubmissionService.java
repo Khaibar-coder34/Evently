@@ -15,6 +15,7 @@ import org.springframework.web.servlet.View;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.springframework.util.ObjectUtils.isEmpty;
@@ -150,5 +151,18 @@ public class SubmissionService {
         if (!(value instanceof String)) {
             errors.put(field.getName(), "Moet tekst zijn");
         }
+    }
+
+    public List<SubmissionResponse> getSubmissions(Long formId) {
+        // Eerst controleren of formulier bestaat
+        formService.findForm(formId);
+
+        return submissionRepository
+                .findAllByFormIdOrderByIdAsc(formId)
+                .stream()
+                .map(this::toResponse)
+                .toList();
+
+
     }
 }

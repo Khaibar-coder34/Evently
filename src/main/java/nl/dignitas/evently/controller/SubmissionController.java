@@ -7,6 +7,8 @@ import nl.dignitas.evently.service.SubmissionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/forms")
 public class SubmissionController {
@@ -21,5 +23,10 @@ public class SubmissionController {
     @ResponseStatus(HttpStatus.CREATED)
     public SubmissionResponse createSubmission(@PathVariable Long formId, @Valid @RequestBody CreateSubmissionRequest request) {
         return submissionService.createSubmission(formId, request);
+    }
+
+    @GetMapping("/{formId}/submissions")
+    public List<SubmissionResponse> getSubmissions(@PathVariable Long formId) {
+        return submissionService.getSubmissions(formId);
     }
 }

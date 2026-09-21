@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
         ApiErrorResponse response = new ApiErrorResponse(
                 HttpStatus.BAD_REQUEST.value(),
                 exception.getMessage(),
-                Map.of()
+                exception.getErrors()
         );
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
